@@ -22,5 +22,6 @@ As "pokemon" ; 이름에 따음표 없이 기록해야함
  
 # 핵심정리
 SQL 쿼리 구조   
-SELECT - FROM - WHERE
+SELECT - FROM(테이블) - WHERE<조건문>
+<img width="697" alt="스크린샷 2024-09-23 오후 2 10 31" src="https://github.com/user-attachments/assets/543952be-efb3-4ec5-9000-4dbc348a4b45">
 
