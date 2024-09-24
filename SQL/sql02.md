@@ -36,13 +36,62 @@ From Pokemon
 GROUP BY   
 type1   
 
- **ORDER BY**    
- 내림차순/오름차순 정렬   
+SELECT
+ *generation*,
+ count (id) as cnt
+From basic.pokemon
+GROUP BY
+ *generation*
+ 
 
  **DISTINCT**
- 여러 값 중에 Unique한 것만 보고싶은 경우 사용   
+ 여러 값 중에 Unique한 것만 보고싶은 경우 사용      
  distinct는 중복을 제거하는 것.
  ex) count(distinct 컬럼) 
+
+# 조건 설정
+**WHERE**
+Table에 바로 조건을 설정하고 싶은 경우 사용   
+Raw data인 테이블 데이터에서 조건 설정
+
+**HAVING**
+GROUP BY한 후 조건을 설정하고 싶은 경우 사용  
+
+# 서브쿼리
+select문 안에 존재하는 select 쿼리   
+From 절에 또 다른 SELECT 문을 넣을 수 있음    
+괄호로 묶어서 사용    
+서브 쿼리를 작성하고, 서브 쿼리 바깥에서 WHERE 조건 설정하는 것   
+=서브 쿼리에서 HAVING으로 하는 것. 
+
+# 정렬하기 : ORDER BY
+SELECT   
+col   
+FROM    
+ORDER BY <컬럼><순서>   
+순서 : DESC(내림차순), OSC(오름차순 - 보통 디폴트)   
+order by는 쿼리 맨마지막에, 중간에 작성할 필요 없음
+
+# 출력 개수 제한하기 : LIMIT   
+쿼리문의 결과 row를 제한하고 싶은 경우 사용   
+쿼리문의 제일 마지막에 작성   
+ex) limit 10
+
+# 정리 
+집계하고 싶은 경우 : GROUP BY + 집계함수(AVG,MAX ..)   
+고윳값을 알고 싶은 경우 : DISTINCT   
+조건을 설정하고 싶은 경우 : WHERE(바로)/HAVING(그룹화후)      
+정렬하고 싶은 경우 : ORDER BY   
+출력 개수를 제한하고 싶은 경우 : LIMIT   
+
+
+
+
+
+
+
+
+ 
  
 
 
