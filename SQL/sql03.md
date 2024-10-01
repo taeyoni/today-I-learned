@@ -1,45 +1,45 @@
 # 코드
--- 1. 포켓몬 중에서 type2가 없는 포켓몬 수를 작성하는 쿼리
--- null 은 is null 로 작성
--- is not null 로 작성
--- or 조건 => () or ()
-select 
-count(id) As cnt
-from `basic.pokemon`
-where 
-type2 is null
+-- 1. 포켓몬 중에서 type2가 없는 포켓몬 수를 작성하는 쿼리   
+-- null 은 is null 로 작성   
+-- is not null 로 작성   
+-- or 조건 => () or ()   
+select    
+count(id) As cnt   
+from `basic.pokemon`    
+where    
+type2 is null    
 
--- 2.type2가 없는 포켓몬의 type1과 포켓몬 수를 알려주는 쿼리 작성
--- 테이블 : pokemon
--- 칼럼 : type1  
--- 조건 : type2가 없는 포켓몬
--- 집계 : 포켓몬 수 => count
--- 정렬 : type1의 포켓몬 수가 큰 순으로 정렬=>order by
--- 집계함수는 group by와 같이 다님. 집계하는 기준이 없으면 count만 쓸 수 있으나, 집계하는 기준이 있다면 그 기준 칼럼을 group by에 써줘야 한다.
-select 
- type1,
- count(id) As pokemon_cnt
-from `basic.pokemon`
-where 
-type2 is null 
-group by
-type1
-order by
-pokemon_cnt DESC
+-- 2.type2가 없는 포켓몬의 type1과 포켓몬 수를 알려주는 쿼리 작성      
+-- 테이블 : pokemon     
+-- 칼럼 : type1        
+-- 조건 : type2가 없는 포켓몬      
+-- 집계 : 포켓몬 수 => count       
+-- 정렬 : type1의 포켓몬 수가 큰 순으로 정렬=>order by       
+-- 집계함수는 group by와 같이 다님. 집계하는 기준이 없으면 count만 쓸 수 있으나, 집계하는 기준이 있다면 그 기준 칼럼을 group by에 써줘야 한다.       
+select      
+ type1,       
+ count(id) As pokemon_cnt      
+from `basic.pokemon`     
+where       
+type2 is null     
+group by      
+type1      
+order by     
+pokemon_cnt DESC    
 
 
--- 3. type2 상관없이 type1의 포켓몬 수를 알 수 있는 쿼리 작성
--- 테이블 : pokemon
--- 조건 : type2 상관없이 => 조건인가? 아닌가? => 아님
--- 컬럼 : type1
--- 집계 : 포켓몬 수 => count
-#select
-#type1,
-#count(id) as pokemon_cnt,
-#COUNT(DISTINCT id) as pokemon_cnt
-#from basic.pokemon
-#group by 
- type1
+-- 3. type2 상관없이 type1의 포켓몬 수를 알 수 있는 쿼리 작성    
+-- 테이블 : pokemon    
+-- 조건 : type2 상관없이 => 조건인가? 아닌가? => 아님    
+-- 컬럼 : type1   
+-- 집계 : 포켓몬 수 => count   
+#select   
+#type1,   
+#count(id) as pokemon_cnt,   
+#COUNT(DISTINCT id) as pokemon_cnt   
+#from basic.pokemon    
+#group by     
+ type1    
 
 -- 4.전설 여부에 따른 포켓몬 수를 알 수 있는 쿼리 작성
 -- 테이블 : pokemon
