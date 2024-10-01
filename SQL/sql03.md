@@ -41,84 +41,84 @@ pokemon_cnt DESC
 #group by     
  type1    
 
--- 4.전설 여부에 따른 포켓몬 수를 알 수 있는 쿼리 작성
--- 테이블 : pokemon
--- 조건 : 전설여부 => 컬럼
--- 컬럼 : 전설(is_legendary)
--- 집계 : 포켓몬 수
-#select
-#is_legendary,
-#count(id) As pokemon_cnt
-#from `basic.pokemon`
-#group by
-#is_legendary
+-- 4.전설 여부에 따른 포켓몬 수를 알 수 있는 쿼리 작성   
+-- 테이블 : pokemon   
+-- 조건 : 전설여부 => 컬럼    
+-- 컬럼 : 전설(is_legendary)    
+-- 집계 : 포켓몬 수   
+#select   
+#is_legendary,    
+#count(id) As pokemon_cnt    
+#from `basic.pokemon`   
+#group by   
+#is_legendary    
 
--- 5. 동명 이인이 있는 이름은 무엇일까?
---테이블 : 트레이너
---조건 : 같은 이름이 2개 이상
---컬럼 : 이름
---집계 : count
-#select
-#name, 
-#count(name) As trainer_cnt
-#from `basic.trainer`
-#group by
-#name
---집계 후 조건 => having. from절의 테이블 조건 => where
-#having 
-#trainer_cnt >= 2 
--- where : 원본데이터 from 절에 있는 데이터에 조건 설정
--- having : group by와 함께 집계 결과에 조건 설정
+-- 5. 동명 이인이 있는 이름은 무엇일까?   
+--테이블 : 트레이너   
+--조건 : 같은 이름이 2개 이상   
+--컬럼 : 이름   
+--집계 : count   
+#select   
+#name,    
+#count(name) As trainer_cnt   
+#from `basic.trainer`    
+#group by    
+#name    
+--집계 후 조건 => having. from절의 테이블 조건 => where   
+#having    
+#trainer_cnt >= 2    
+-- where : 원본데이터 from 절에 있는 데이터에 조건 설정   
+-- having : group by와 함께 집계 결과에 조건 설정    
 
--- 7.trainer 테이블에서 "Iris", "Whitney", "Cynthia" 트레이너의 정보를 알 수 있는 쿼리를 작성
--- 테이블 : trainer 
--- 조건 : 이름 
--- 컬럼 : *
--- 집계 : 없음
-#select 
-#*
-#from basic.trainer
-#where
-  #(name = "Iris")
-  #or (name = "Cynthia")
-  #or (name = "Whitney")
-  #or 조건 대신 => in
-  #name IN ("Iris", "Cynthis", "Whitney")   
+-- 7.trainer 테이블에서 "Iris", "Whitney", "Cynthia" 트레이너의 정보를 알 수 있는 쿼리를 작성   
+-- 테이블 : trainer     
+-- 조건 : 이름    
+-- 컬럼 : *    
+-- 집계 : 없음    
+#select     
+#*    
+#from basic.trainer    
+#where    
+  #(name = "Iris")   
+  #or (name = "Cynthia")    
+  #or (name = "Whitney")    
+  #or 조건 대신 => in   
+  #name IN ("Iris", "Cynthis", "Whitney")       
 
---8. 전체 포켓몬 수는 얼마나 되나요?
--- 테이블 : 포켓몬
-#select
-#count(id) AS pokemon_cnt
-#from basic.pokemon
+--8. 전체 포켓몬 수는 얼마나 되나요?   
+-- 테이블 : 포켓몬    
+#select   
+#count(id) AS pokemon_cnt   
+#from basic.pokemon   
 
--- 9.세대별로 포켓몬 수가 얼마나 되는지 쿼리 작성
-#select
-#generation,
-#count(id) As pokemon_cnt
-#from basic.pokemon
-#group by
-#generation
+-- 9.세대별로 포켓몬 수가 얼마나 되는지 쿼리 작성   
+#select   
+#generation,   
+#count(id) As pokemon_cnt   
+#from basic.pokemon   
+#group by   
+#generation   
 
--- 10.type2가 존재하는 포켓몬 수는?
---테이블 : 포켓몬
---조건 : type2 존재 => is not null
-#select
-#count(id) As pokemon_cnt
-#from basic.pokemon
-#where
-#type2 is not null
+-- 10.type2가 존재하는 포켓몬 수는?    
+--테이블 : 포켓몬   
+--조건 : type2 존재 => is not null   
+#select   
+#count(id) As pokemon_cnt   
+#from basic.pokemon   
+#where   
+#type2 is not null   
 
---11. type2가 있는 포켓몬 중에서 제일 많은 type1은?
-#select
-#count(id) As pokemon_cnt
-#from basic.pokemon
-#where
-#type2 is not null
-#group by
-#type1
-#order by
-#pokemon_cnt desc
-#limit 1
+--11. type2가 있는 포켓몬 중에서 제일 많은 type1은?    
+#select   
+#count(id) As pokemon_cnt   
+#from basic.pokemon   
+#where   
+#type2 is not null    
+#group by    
+#type1    
+#order by    
+#pokemon_cnt desc    
+#limit 1    
 
 --12. 단일 타입 포켓몬 중 많은 type1은 무엇일까?   
 -- 조건 : 단일 타입 => 하나의 타입만 존재 => type2가 null(값이 없어야 한다)   
