@@ -38,7 +38,7 @@ pokemon_cnt DESC
 #COUNT(DISTINCT id) as pokemon_cnt
 #from basic.pokemon
 #group by 
-# type1
+ type1
 
 -- 4.전설 여부에 따른 포켓몬 수를 알 수 있는 쿼리 작성
 -- 테이블 : pokemon
@@ -140,7 +140,7 @@ pokemon_cnt DESC
 #kor_name
 #from basic.pokemon
 #where
-#  kor_name like "파%"
+  kor_name like "파%"
 -- %파 => 파로 끝남 / 파% => 파로 시작 
 
 --14. 뱃지가 6개 이상인 트레이너 수는?
@@ -195,21 +195,30 @@ from basic.trainer_pokemon
 group by
 trainer_id
 having 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 released_ratio >= 0.2
+
+<img width="708" alt="image" src="https://github.com/user-attachments/assets/92766784-8dc0-4565-85d7-03384774773c">
+
+# 새로운 집계 함수
+- group by all : 컬럼 명시 하지 않아도 됨
+  select
+   firstname as first_name,
+   lastname as last_name,
+   sum(pointscored) As total_points
+  From playerstats
+  Group by all
+  (group by
+   first_name,
+   last_name)
+
+# 3강(SQL 작성) 목차
+- sql 쿼리 작성 흐름
+- 쿼리 작성 템플릿, 생산성 도구(테이블, 조건, 컬럼, 집계)
+- 오류를 디버깅 하는 방법
+
+# SQL 쿼리 작성 흐름
+
+
+
 
 
