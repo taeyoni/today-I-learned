@@ -120,83 +120,83 @@ pokemon_cnt DESC
 #pokemon_cnt desc
 #limit 1
 
---12. 단일 타입 포켓몬 중 많은 type1은 무엇일까?
--- 조건 : 단일 타입 => 하나의 타입만 존재 => type2가 null(값이 없어야 한다)
-#select
-#type1,
-#count(id) As pokemon_cnt
-#from basic.pokemon
-#where
-#type2 is null
-#group by type1
-#order by 
-#pokemon_cnt desc
+--12. 단일 타입 포켓몬 중 많은 type1은 무엇일까?   
+-- 조건 : 단일 타입 => 하나의 타입만 존재 => type2가 null(값이 없어야 한다)   
+#select   
+#type1,   
+#count(id) As pokemon_cnt    
+#from basic.pokemon   
+#where   
+#type2 is null   
+#group by type1   
+#order by    
+#pokemon_cnt desc    
 
 
---13. 포켓몬의 이름에 "파"가 들어가는 포켓몬은?
--- 조건 : name에 "파"
--- 컬럼 : name 
--- 집계 : 없음
-#select 
-#kor_name
-#from basic.pokemon
-#where
-  kor_name like "파%"
--- %파 => 파로 끝남 / 파% => 파로 시작 
+--13. 포켓몬의 이름에 "파"가 들어가는 포켓몬은?   
+-- 조건 : name에 "파"   
+-- 컬럼 : name    
+-- 집계 : 없음   
+#select    
+#kor_name   
+#from basic.pokemon   
+#where   
+  kor_name like "파%"   
+-- %파 => 파로 끝남 / 파% => 파로 시작     
 
---14. 뱃지가 6개 이상인 트레이너 수는?
--- 조건 : 뱃지 6개 이상
--- 집계 : count
-#select
-#count(id) as trainer_cnt
-#from basic.trainer
-#where
-#badge_count >= 6
+--14. 뱃지가 6개 이상인 트레이너 수는?   
+-- 조건 : 뱃지 6개 이상    
+-- 집계 : count   
+#select   
+#count(id) as trainer_cnt   
+#from basic.trainer   
+#where   
+#badge_count >= 6   
 
--- 15. 트레이너가 보유한 포켓몬 수가 제일 많은 트레이너는?
--- 테이블 : trainer_pokemon
--- 조건 : 없음
--- 칼럼 : trainer_id
--- 합계 : 포켓몬 수 => count
-#select 
-#trainer_id,
-#count(pokemon_id) As pokemon_cnt
-#from `basic.trainer_pokemon`
-#group by
-#trainer_id
+-- 15. 트레이너가 보유한 포켓몬 수가 제일 많은 트레이너는?   
+-- 테이블 : trainer_pokemon    
+-- 조건 : 없음   
+-- 칼럼 : trainer_id   
+-- 합계 : 포켓몬 수 => count   
+#select    
+#trainer_id,   
+#count(pokemon_id) As pokemon_cnt   
+#from `basic.trainer_pokemon`   
+#group by   
+#trainer_id   
 
---16. 포켓몬을 많이 풀어준 트레이너는?
---테이블 : pokemon_trainer
---조건 : status = "Released"
---칼럼 : trainer_id
---집계 : count
-#select 
-#trainer_id,
-#count(pokemon_id) As pokemon_cnt
-#from `basic.trainer_pokemon`
-#where
-#status = "Released"
-#group by 
-#trainer_id
-#order by
-#pokemon_cnt
+--16. 포켓몬을 많이 풀어준 트레이너는?    
+--테이블 : pokemon_trainer    
+--조건 : status = "Released"    
+--칼럼 : trainer_id    
+--집계 : count    
+#select     
+#trainer_id,    
+#count(pokemon_id) As pokemon_cnt    
+#from `basic.trainer_pokemon`    
+#where    
+#status = "Released"    
+#group by     
+#trainer_id    
+#order by    
+#pokemon_cnt    
 
---17. 트레이너 별로 풀어준 포켓몬의 비율이 20%가 넘는 포켓몬 트레이너는 누구일까요? 풀어준 포켓몬 비율 = (풀어준 포켓몬 수/전체 포켓몬 수)
---테이블 : trainer_pokemon
---조건 : 풀어준 포켓몬의 비율이 20%가 넘어야 한다
---칼럼 : trainer
---집계 : countif
---countif(조건) : countif(컬럼 = "3")
-select 
-trainer_id,
-countif(status = "Released") As released_cnt,
-count(pokemon_id) AS pokemon_cnt,
-countif(status = "Released")/count(pokemon_id) As released_ratio
-from basic.trainer_pokemon
-group by
-trainer_id
-having 
-released_ratio >= 0.2
+--17. 트레이너 별로 풀어준 포켓몬의 비율이 20%가 넘는 포켓몬 트레이너는 누구일까요? 풀어준 포켓몬 비율 = (풀어준 포켓몬 수/전체 포켓몬 수)    
+--테이블 : trainer_pokemon   
+--조건 : 풀어준 포켓몬의 비율이 20%가 넘어야 한다   
+--칼럼 : trainer    
+--집계 : countif    
+--countif(조건) : countif(컬럼 = "3")    
+select     
+trainer_id,   
+countif(status = "Released") As released_cnt,    
+count(pokemon_id) AS pokemon_cnt,   
+countif(status = "Released")/count(pokemon_id) As released_ratio    
+from basic.trainer_pokemon   
+group by   
+trainer_id   
+having    
+released_ratio >= 0.2    
 
 <img width="708" alt="image" src="https://github.com/user-attachments/assets/92766784-8dc0-4565-85d7-03384774773c">
 
@@ -222,15 +222,16 @@ released_ratio >= 0.2
 
 # 쿼리 작성 템플릿과 생산성 도구 
 - 템플릿
-  #쿼리를 작성하는 목표, 확인할 지표 :
-  #쿼리 계산 방법 :
-  #데이터의 기간 :
-  #사용할 테이블 :
-  #join key :
-  #데이터 특징 :
+  #쿼리를 작성하는 목표, 확인할 지표 :    
+  #쿼리 계산 방법 :    
+  #데이터의 기간 :    
+  #사용할 테이블 :    
+  #join key :    
+  #데이터 특징 :    
 
-- 생산성 도구 : espanso 핵심로직
-   특정 단어가 감지되면 정의된 것으로 바꾼다.
-  
+- 생산성 도구 : espanso 핵심로직   
+   특정 단어가 감지되면 정의된 것으로 바꾼다.   
+  <img width="697" alt="image" src="https://github.com/user-attachments/assets/6bf4cf9f-754b-4c15-9aed-6f616deb1550">
+
 
 
