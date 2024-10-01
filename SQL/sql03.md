@@ -1,3 +1,4 @@
+# 코드
 -- 1. 포켓몬 중에서 type2가 없는 포켓몬 수를 작성하는 쿼리
 -- null 은 is null 로 작성
 -- is not null 로 작성
@@ -217,8 +218,19 @@ released_ratio >= 0.2
 - 오류를 디버깅 하는 방법
 
 # SQL 쿼리 작성 흐름
+<img width="702" alt="image" src="https://github.com/user-attachments/assets/3d0d314a-4548-423b-bd9b-d38b62951c6b">
 
+# 쿼리 작성 템플릿과 생산성 도구 
+- 템플릿
+  #쿼리를 작성하는 목표, 확인할 지표 :
+  #쿼리 계산 방법 :
+  #데이터의 기간 :
+  #사용할 테이블 :
+  #join key :
+  #데이터 특징 :
 
-
+- 생산성 도구 : espanso 핵심로직
+   특정 단어가 감지되면 정의된 것으로 바꾼다.
+  
 
 
