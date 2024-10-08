@@ -53,6 +53,9 @@
 - time zone
 ![image](https://github.com/user-attachments/assets/d9641597-9e72-4c43-88ca-2c7c771c50ed)
 
+- 시간 데이터 다루기 
+<img width="698" alt="스크린샷 2024-10-08 오후 12 24 00" src="https://github.com/user-attachments/assets/aed6fda3-28a2-43cd-8335-6859f50ac81a">
+ 
 
 
 
