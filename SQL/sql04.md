@@ -99,6 +99,11 @@ ex) select
 # DATETIME 함수 - LAST_DAY   
 마지막 날을 알고 싶은 경우 : 자동으로 월의 마지막 값을 계산해서 특정 연산을 할 경우   
 ex) last_day(datetime) : 월의 마지막 값을 반환 
+<img width="607" alt="image" src="https://github.com/user-attachments/assets/19fa716d-ce95-4dad-89b4-4b2b997d223f">
+
+# DATETIME 함수 - DATETIME_DIFF
+두 DATETIME의 차이를 알고 싶은 경우    
+datetime_diff(첫 datetime, 두번째 datetime, 궁금한차이(day, month, week)   
 
 
 
