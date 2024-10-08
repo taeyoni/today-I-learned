@@ -58,9 +58,47 @@
 <img width="691" alt="image" src="https://github.com/user-attachments/assets/027e6e78-4226-49d0-9888-d1628171cf9b">
 
 - timestamp 와 datetime 비교
+  <img width="701" alt="image" src="https://github.com/user-attachments/assets/4a9b8a6d-2fae-48ba-a101-cfde789b9c4a">
+
+# DATETIME 함수 - CURRENT_DATETIME
+CURRENT_DATETIME([time_zone]) : 현재 DATETIME 출력     
+> select
+    current_date() AS current_date,    
+    current_date("Asia/Seoul") AS asia_date,   
+    current_datetime() AS current_datetime, <= 타임존 X  
+    current_datetime("Aisa/Seoul") AS current_datetime_asia; <= 타임존o
+
+# DATETIME 함수 - EXTRACT 
+DATETIME에서 특정 부분만 추출하고 싶은 경우   
+> select
+    extract(date from datetime "2024-0102 14:00:00") AS date,
+    extract(year from datetime "2024-0102 14:00:00") AS date,
+    extract(month from datetime "2024-0102 14:00:00") AS date,
+    extract(day from datetime "2024-0102 14:00:00") AS date,
+    extract(hour from datetime "2024-0102 14:00:00") AS date,
+    extract(minute from datetime "2024-0102 14:00:00") AS date,
+- 요일 추출    
+  extract(dayofweek from datetime_col)
+  한 주의 첫날이 일요일인 [1,7] 범위의 값을 반환
   
+# DATETIME 함수 - DATETIME_TRUNC
+DATE와 HOUR만 남기고 싶은 경우 => 시간 자르기    
+ex)datetime_trunc(datetime_col, HOUR)   
+  2024-0102 14:42:13을 HOUR로 자르면 2024-01-02 14:00:00   
 
+# DATETIME 함수 - PARSE_DATETIME
+문자열로 저장된 DATETIME을 DATETIME 타입으로 바꾸고 싶은 경우   
+PARSE_DATETIME('문자열의 형태', 'DATETIME 문자열') AS datetime   
+ex) select    
+      parse_datetime('%Y-%m-%d %H:%M:%S', '2024-01-01 12:35:35') AS parse_datetime    
+# DATETIME 함수 - FORMAT_DATETIME   
+DATETIME 타입 데이터를 특정 형태의 문자열 데이터로 변환하고 싶은 경우   
+ex) select   
+     format_datetime("%c", DATETIME "2024-01-11 12:35:35") AS formatted;
 
+# DATETIME 함수 - LAST_DAY   
+마지막 날을 알고 싶은 경우 : 자동으로 월의 마지막 값을 계산해서 특정 연산을 할 경우   
+ex) last_day(datetime) : 월의 마지막 값을 반환 
 
 
 
