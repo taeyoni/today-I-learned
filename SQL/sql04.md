@@ -30,7 +30,19 @@
       변환 실패시 null로 변환
    
 # 문자열(STRING) 함수 
-- 
+<img width="641" alt="image" src="https://github.com/user-attachments/assets/3176cbb2-4853-4439-8c02-c1d99497df72">
+- concat 
+  > string이나 숫자를 넣을 때 데이터에 직접 넣어준 것 => from 없어도 실행 가능
+- split
+  > split(문자열_원본, 나눌 기준이 되는 문자)
+- replace 
+  > replace(문자열_원본, 찾을 단어, 바꿀 단어)
+- trim
+  > trim(문자열_원본, 자를 단어)
+- upper 
+  > upper(문자열 원본) 소문자를 대문자로 변환     
+   
+ 
 
 
 
