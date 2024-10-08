@@ -105,8 +105,9 @@ ex) last_day(datetime) : 월의 마지막 값을 반환
 두 DATETIME의 차이를 알고 싶은 경우    
 datetime_diff(첫 datetime, 두번째 datetime, 궁금한차이(day, month, week)   
 
+# 정리 
 
-
+<img width="687" alt="image" src="https://github.com/user-attachments/assets/cfa32efe-c227-4ce4-a9fe-8d46d3197154">
 
 
 
