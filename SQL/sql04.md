@@ -29,7 +29,8 @@
  - SAFE_CAST
       변환 실패시 null로 변환
    
-
+# 문자열(STRING) 함수 
+- 
 
 
 
