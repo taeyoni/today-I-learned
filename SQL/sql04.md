@@ -55,7 +55,10 @@
 
 - 시간 데이터 다루기 
 <img width="698" alt="스크린샷 2024-10-08 오후 12 24 00" src="https://github.com/user-attachments/assets/aed6fda3-28a2-43cd-8335-6859f50ac81a">
+<img width="691" alt="image" src="https://github.com/user-attachments/assets/027e6e78-4226-49d0-9888-d1628171cf9b">
 
+- timestamp 와 datetime 비교
+  
 
 
 
