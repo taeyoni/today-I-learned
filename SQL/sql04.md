@@ -51,7 +51,8 @@
 - datetime : date와 time까지 표시하는 데이터, timezone 정보 없음, (2023-12-31 14:00:00)
 - time : 날짜와 무관하게 시간만 표시하는 데이터 (23:59:59)
 - time zone
-  > 
+![image](https://github.com/user-attachments/assets/d9641597-9e72-4c43-88ca-2c7c771c50ed)
+
 
 
 
