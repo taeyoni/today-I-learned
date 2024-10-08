@@ -42,7 +42,21 @@
 - upper 
   > upper(문자열 원본) 소문자를 대문자로 변환     
    
- 
+ # 날짜 및 시간 데이터
+ ![image](https://github.com/user-attachments/assets/033bd3f2-3bfc-4125-9e7d-762756f05dd1)
+- 시간
+  > created at, updated at 
+# 시간 데이터 
+- date : date만 표시하는 데이터 (2023-12-31)
+- datetime : date와 time까지 표시하는 데이터, timezone 정보 없음, (2023-12-31 14:00:00)
+- time : 날짜와 무관하게 시간만 표시하는 데이터 (23:59:59)
+- time zone
+  > 
+
+
+
+
+
 
 
 
