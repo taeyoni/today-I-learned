@@ -9,3 +9,11 @@
 <img width="672" alt="image" src="https://github.com/user-attachments/assets/3c662ce6-0777-47f0-840e-02f7f3b5b428">
 
 <img width="652" alt="image" src="https://github.com/user-attachments/assets/93f007f2-cef1-435a-8f2e-2635ef7c6097">
+
+
+# 정리 
+- 데이터 타입 : 숫자, 문자, 시간날짜, 부울
+
+
+# 공식 문서
+'기술명' + documentation 으로 검색
