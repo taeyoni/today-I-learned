@@ -19,12 +19,12 @@
 
 # self join 문법
 select   
-  A.col1,
-  A.col2,
-  B.col11,
-  B.col12
-from table1 AS A
-left join table2 AS B
+  A.col1,    
+  A.col2,     
+  B.col11,     
+  B.col12     
+from table1 AS A     
+left join table2 AS B      
 ON A.key = B.key 
 
 <img width="715" alt="image" src="https://github.com/user-attachments/assets/1e0616e9-db6b-4eb0-87a2-deeb7d39e49c">
