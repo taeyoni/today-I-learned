@@ -34,6 +34,9 @@ ON A.key = B.key
 - 모두 다 : cross
 - left : 기준이 되는 table을 왼쪽에
 
+ <img width="486" alt="image" src="https://github.com/user-attachments/assets/c37195ae-161b-4b3f-913c-36de0a41a67f">
+
+
 
 
 
