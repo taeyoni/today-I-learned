@@ -69,6 +69,7 @@ union all : 모두 합치기
 하나의 유저에 승리 비율을 확인한 후 전체 아이디에 조건을 걸어준다    
 (trainer_id = 7을 주석처리 해줌)   
 
+<img width="635" alt="image" src="https://github.com/user-attachments/assets/75ff0c9e-eb59-46bc-9c1e-2b647f02edee">
 
 
 
