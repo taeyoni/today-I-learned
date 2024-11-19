@@ -50,6 +50,7 @@ FROM 이름 <= 이렇게 활용함
 3) DISTINCT : 데이터의 고유값을 확인해 중복 여부 확인
 4) IF문, CASE WHEN : 의도와 같다면 TRUE, 아니면 FALSE
 
+<img width="592" alt="image" src="https://github.com/user-attachments/assets/2f5020be-ee08-46bf-8324-a0a018755777">
 
 
 
