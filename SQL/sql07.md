@@ -71,6 +71,8 @@ union all : 모두 합치기
 
 <img width="635" alt="image" src="https://github.com/user-attachments/assets/75ff0c9e-eb59-46bc-9c1e-2b647f02edee">
 
+<img width="697" alt="image" src="https://github.com/user-attachments/assets/8ec2bbee-65b9-4ff3-b275-5b0bdfd39c47">
+
 
 
 
