@@ -42,3 +42,14 @@ FROM 이름 <= 이렇게 활용함
         2. 쿼리 작성
         3. 1-2 일치하는지 확인
    
+<img width="697" alt="image" src="https://github.com/user-attachments/assets/ccf1ed9e-6a61-4e73-8acf-cf9401b92c1d">
+
+# 데이터 검증 시 자주 활용하는 SQL 쿼리    
+1) COUNT(*) : 행 수를 확인. 의도한 데이터의 행 개수가 맞는가?
+2) NOT NULL : 특정 컬럼에 NULL이 존재하는가? 필수 필드가 비어있지 않은가?
+3) DISTINCT : 데이터의 고유값을 확인해 중복 여부 확인
+4) IF문, CASE WHEN : 의도와 같다면 TRUE, 아니면 FALSE
+
+
+
+
