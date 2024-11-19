@@ -51,6 +51,27 @@ FROM 이름 <= 이렇게 활용함
 4) IF문, CASE WHEN : 의도와 같다면 TRUE, 아니면 FALSE
 
 <img width="592" alt="image" src="https://github.com/user-attachments/assets/2f5020be-ee08-46bf-8324-a0a018755777">
+<img width="599" alt="image" src="https://github.com/user-attachments/assets/481b1a63-14a5-480d-9e7c-e07adaa2eb32">
+union all : 모두 합치기 
+
+
+# 예시 
+ 문제 : 각 트레이너가 진행한 배틀의 승리 비율을 계산해야 하며, 배틀에 참여한 횟수가 9회 이상인 경우만 계산한다.   
+
+ 검증 프로세스 :   
+ 1) 전체 데이터 파악
+ 2) 특정 user_id 선정
+ 3) 승률 직접 COUNT : 결과 예상
+ 4) 쿼리 작성
+ 5) 실제와 비교
+ 6) 맞다면 특정 유저 조건 제외
+
+하나의 유저에 승리 비율을 확인한 후 전체 아이디에 조건을 걸어준다    
+(trainer_id = 7을 주석처리 해줌)   
+
+
+
+
 
 
 
