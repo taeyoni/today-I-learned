@@ -10,7 +10,7 @@
   Countries qualified to the World Cup        
 - 사용 데이터 :
   WorldCupMatches    
-  WorldCup - Tableau Format
+  WorldCup - Tableau Format        
   WorldCups    
 
  
