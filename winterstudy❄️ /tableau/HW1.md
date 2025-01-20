@@ -18,4 +18,8 @@ https://public.tableau.com/app/profile/.80026435/viz/tableaucopy1/1?publish=yes
 
 
 
+https://www.youtube.com/watch?v=G4oWgIQeD0o&list=PL7RSbI9s6KhgovdILZ-lIpW-LTkduE-ll&index=22
+
+
+
 ![Image](https://github.com/user-attachments/assets/2cefc731-2680-4828-9a66-7e788f3e8014)   
