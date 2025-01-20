@@ -1,13 +1,13 @@
 # World Cup Results 대시보드 필사   
 - 목적 : 1930-2015 월드컵 경기 결과를 간략적으로 살펴보기 위함        
 - 사용 시트 :
-  countries that won the World Cup
-  Winners and top teams by World Cup year and final's stadium
-  Teams by total finals and semi-finals
-  Countries that hosted the World Cup
-  Competitions Stats by year
-  Map : Audience by country and year
-  Countries qualified to the World Cup
+  countries that won the World Cup       
+  Winners and top teams by World Cup year and final's stadium       
+  Teams by total finals and semi-finals      
+  Countries that hosted the World Cup      
+  Competitions Stats by year        
+  Map : Audience by country and year       
+  Countries qualified to the World Cup        
 - 사용 데이터 :
   WorldCupMatches    
   WorldCup - Tableau Format
