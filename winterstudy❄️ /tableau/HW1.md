@@ -13,6 +13,11 @@
   WorldCup - Tableau Format        
   WorldCups    
 
+- feedback
+  배경색에 맞는 글자색      
+  만약 기능을 추가한다면 국가를 클릭하면 넘어가는..??!!
+  
+
  
 https://public.tableau.com/app/profile/.80026435/viz/tableaucopy1/1?publish=yes    
 
