@@ -173,6 +173,12 @@ SELECT * FROM sales_summary WHERE total_sales > 100000;
 
 
 
+## 문제풀이 
+<img width="1437" alt="Image" src="https://github.com/user-attachments/assets/1056a7c1-6d70-4807-944f-7733d979248b" />
+<img width="1211" alt="Image" src="https://github.com/user-attachments/assets/53bf83a7-a5d7-48ff-bc6e-d21678649e52" />
+일단 이 문제에서 서브쿼리를 사용하는게 훨씬 쉽다고 느낌. 더 어렵고 복잡한 문제였으면 with문 사용이 쉬웠을텐데 with문을 활용하는 것 자체가 굳이굳이인 느낌이었다. 내가 익숙하지 않아서 그런 것도 같다 ㅠㅠㅠㅠㅠ 킁..
+
+
 
 
  
