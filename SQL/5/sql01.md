@@ -92,6 +92,7 @@ WHERE EXISTS (
     WHERE cities_stores.store_type = stores.store_type          
 );
 
+- What kind of store is present in all cities?
 WHERE NOT EXISTS (        
     SELECT * FROM cities        
     WHERE NOT EXISTS (        
@@ -103,6 +104,46 @@ WHERE NOT EXISTS (
 외부 NOT EXISTS 서브쿼리는 내부 서브쿼리를 뒤집어서 “모든 도시에 존재하는 store_type“을 찾는다.      
 
 # 15.2.15.10 Subquery Errors     
+1. 지원되지 않는 서브쿼리 문법       
+ERROR 1235 (ER_NOT_SUPPORTED_YET)      
+SQLSTATE = 42000       
+Message = "This version of MySQL doesn't yet support        
+'LIMIT & IN/ALL/ANY/SOME subquery'"
+예제)        
+SELECT * FROM t1 WHERE s1 IN (SELECT s2 FROM t2 ORDER BY s1 LIMIT 1)      
+MySQL은 IN 서브쿼리에서 LIMIT을 허용하지 않음        
+
+2. 서브쿼리에서 반환된 열 개수 오류
+ERROR 1241 (ER_OPERAND_COL)
+SQLSTATE = 21000
+Message = "Operand should contain 1 column(s)"
+예제)    
+SELECT (SELECT column1, column2 FROM t2) FROM t1;
+단일 열(scalar value)만 반환해야 하지만, 다음과 같이 두 개 이상의 열을 반환하려고 하면 오류가 발생.
+
+
+3. 서브쿼리가 여러 개의 행을 반환하는 오류
+ERROR 1242 (ER_SUBSELECT_NO_1_ROW)
+SQLSTATE = 21000
+Message = "Subquery returns more than 1 row"
+예제)         
+SELECT * FROM t1 WHERE column1 = (SELECT column1 FROM t2); (틀림)
+SELECT * FROM t1 WHERE column1 = ANY (SELECT column1 FROM t2); (고치기완료!)
+
+4. 같은 테이블을 업데이트하는 오류
+ERROR 1093 (ER_UPDATE_TABLE_USED)      
+SQLSTATE = HY000     
+Message = "You can't specify target table 'x'      
+for update in FROM clause"
+예제)     
+UPDATE t1 SET column2 = (SELECT MAX(column1) FROM t1);
+서브쿼리에서 업데이트하려는 테이블을 동시에 조회하면 오류가 발생
+
+
+
+
+ 
+
 
 
 
