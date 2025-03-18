@@ -140,7 +140,38 @@ UPDATE t1 SET column2 = (SELECT MAX(column1) FROM t1);
 서브쿼리에서 업데이트하려는 테이블을 동시에 조회하면 오류가 발생
 
 ## 문제풀이
-<img width="1074" alt="Image" src="https://github.com/user-attachments/assets/16750a7c-eab3-4810-9672-e546d6473f3d" />
+<img width="1074" alt="Image" src="https://github.com/user-attachments/assets/16750a7c-eab3-4810-9672-e546d6473f3d" />     
+<img width="1070" alt="Image" src="https://github.com/user-attachments/assets/52d31288-39cb-46c2-b58e-0cbc87c45c6d" />     
+
+
+# 15.2.20 WITH (Common Table Expressions)
+### 공통 테이블 표현식(CTE)란?      
+	•	CTE(Common Table Expression)는 일시적인 결과 집합을 생성하여 동일한 SQL 문 내에서 여러 번 참조할 수 있도록 하는 기능
+	•	WITH 절을 사용하여 정의되며, 주로 가독성을 높이고 서브쿼리를 단순화하는 데 활용
+
+### CTE 기본 문법
+WITH cte_name AS (서브쿼리)
+SELECT * FROM cte_name;      
+	•	cte_name은 CTE의 이름이며, 마치 가상의 테이블처럼 사용할 수 있다.        
+	•	AS (서브쿼리) 부분에 데이터를 생성하는 SQL 문을 작성한다.       
+
+예제)          
+WITH cte1 AS (SELECT a, b FROM table1),     
+     cte2 AS (SELECT c, d FROM table2)       
+SELECT b, d FROM cte1 JOIN cte2      
+WHERE cte1.a = cte2.c;         
+
+WITH sales_summary AS (       
+    SELECT category, SUM(sales) AS total_sales FROM sales GROUP BY category      
+)     
+SELECT * FROM sales_summary WHERE total_sales > 100000;     
+
+### CTE의 주요 특징
+- CTE는 동일한 SQL 문 내에서 여러 번 참조 가능    
+- 다른 CTE를 참조하여 새로운 CTE를 생성 가능      
+- SELECT, UPDATE, DELETE, INSERT 등 다양한 문장에서 사용 가능
+
+
 
 
 
