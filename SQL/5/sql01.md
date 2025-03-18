@@ -139,6 +139,8 @@ for update in FROM clause"
 UPDATE t1 SET column2 = (SELECT MAX(column1) FROM t1);
 서브쿼리에서 업데이트하려는 테이블을 동시에 조회하면 오류가 발생
 
+## 문제풀이
+<img width="1074" alt="Image" src="https://github.com/user-attachments/assets/16750a7c-eab3-4810-9672-e546d6473f3d" />
 
 
 
