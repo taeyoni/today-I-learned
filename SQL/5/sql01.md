@@ -11,7 +11,7 @@ SELECT * FROM t1
 SELECT * FROM t1 AS t      
   WHERE 2 = (SELECT COUNT(*) FROM t1 WHERE t1.id = t.id);     
 
-1. 서브쿼리 vs 스칼라 값(단일값)
+1. 서브쿼리 vs 스칼라 값(단일값)      
 => 서브쿼리는 반드시 하나의 값만 반환해야 함.     
 옳은⭕️ 예제 :      
 SELECT * FROM employees      
@@ -22,31 +22,31 @@ WHERE salary = (SELECT salary FROM employees);
 한가지 값만 반환하지 않는다!!
 
 2. 서브쿼리 vs 행       
-=> 서브쿼리는 비교 대상 행과 동일한 개수의 값을 반환해야 한다.
+=> 서브쿼리는 비교 대상 행과 동일한 개수의 값을 반환해야 한다.        
 옳은⭕️ 예제 :          
 SELECT * FROM employees        
 WHERE (department_id, salary) = (SELECT department_id, MAX(salary) FROM employees GROUP BY department_id);         
 틀린❌ 예제 :        
 SELECT * FROM employees          
-WHERE (department_id, salary) = (SELECT department_id FROM employees);
-왼:2개, 오:1개로 틀림
+WHERE (department_id, salary) = (SELECT department_id FROM employees);         
+왼:2개, 오:1개로 틀림        
 
 # 15.2.15.3 Subqueries with ANY, IN, or SOME
-operand comparison_operator ANY (subquery)      
-operand IN (subquery)      
-operand comparison_operator SOME (subquery)        
-comparison operator : =  >  <  >=  <=  <>  !=  <=>        
+operand comparison_operator ANY (subquery)         
+operand IN (subquery)        
+operand comparison_operator SOME (subquery)          
+comparison operator : =  >  <  >=  <=  <>  !=  <=>          
 
 ### ANY 
-비교 연산자와 함께 사용되며, **서브쿼리가 반환하는 값 중 하나라도 비교 조건을 만족하면 TRUE**를 반환.     
-예제 : SELECT s1 FROM t1 WHERE s1 > ANY (SELECT s1 FROM t2);        
-- t1.s1 값이 t2.s1의 어떤 값보다 크다면(> ANY), 해당 s1 값을 반환.     
-- 예를 들어, t2의 값이 (21,14,7)이라면, t1.s1이 7보다 크기만 해도 조건이 참(TRUE)이 됨.
+비교 연산자와 함께 사용되며, **서브쿼리가 반환하는 값 중 하나라도 비교 조건을 만족하면 TRUE**를 반환.        
+예제 : SELECT s1 FROM t1 WHERE s1 > ANY (SELECT s1 FROM t2);          
+- t1.s1 값이 t2.s1의 어떤 값보다 크다면(> ANY), 해당 s1 값을 반환.        
+- 예를 들어, t2의 값이 (21,14,7)이라면, t1.s1이 7보다 크기만 해도 조건이 참(TRUE)이 됨.         
 - t2가 비어 있으면 조건은 FALSE, t2에 NULL만 존재하면 결과는 NULL이 됨.
 
 ### IN 
-in 연산자는 = ANY와 동일한 의미를 가짐.     
-SELECT s1 FROM t1 WHERE s1 = ANY (SELECT s1 FROM t2);         
+in 연산자는 = ANY와 동일한 의미를 가짐.      
+SELECT s1 FROM t1 WHERE s1 = ANY (SELECT s1 FROM t2);          
 SELECT s1 FROM t1 WHERE s1 IN    (SELECT s1 FROM t2);         
 in은 표현식 리스트에 사용 가능       
 =ANY는 표현식 리스트 사용 불가        
