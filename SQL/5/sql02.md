@@ -12,23 +12,18 @@ AGG_FUNC(column3) OVER (PARTITION BY column2 ORDER BY column1) AS alias_name
 FROM table_name;`
 
 ### 예제 
-+------+---------+------------+--------+
-| year | country | product    | profit |
-+------+---------+------------+--------+
-| 2000 | Finland | Computer   |   1500 |
-| 2000 | Finland | Phone      |    100 |
-| 2001 | Finland | Phone      |     10 |
-| 2000 | India   | Calculator |     75 |
-| 2000 | India   | Calculator |     75 |
-| 2000 | India   | Computer   |   1200 |
-| 2000 | USA     | Calculator |     75 |
-| 2000 | USA     | Computer   |   1500 |
-| 2001 | USA     | Calculator |     50 |
-| 2001 | USA     | Computer   |   1500 |
-| 2001 | USA     | Computer   |   1200 |
-| 2001 | USA     | TV         |    150 |
-| 2001 | USA     | TV         |    100 |
-+------+---------+------------+--------+
+<img width="484" alt="스크린샷 2025-03-24 오후 9 15 43" src="https://github.com/user-attachments/assets/7ace8de0-7f52-4bd1-b0c5-9a1903b96324" />
+
+##### 전체 행의 profit 합계를 각 행에 출력
+SELECT      
+  year,        
+  country,         
+  product,          
+  profit,         
+  SUM(profit) OVER() AS total_profit         
+FROM sales;         
+
+-  OVER() 안에 아무 것도 없으면, 전체 데이터셋 기준으로 계산
 
 
 
