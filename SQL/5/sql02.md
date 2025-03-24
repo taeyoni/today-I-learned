@@ -7,19 +7,12 @@
 - 윈도우 함수는 OVER() 구문과 함께 써야 함
 
 `SELECT
-
 column1,
-
 column2,
-
 AGG_FUNC(column3) OVER (
-
     PARTITION BY column2
-    
     ORDER BY column1
-    
-  ) AS alias_name
-  
+    ) AS alias_name
 FROM table_name;`
 
 
