@@ -182,4 +182,48 @@ FROM series;
 - 시간 기준으로 바로 앞/뒤 값 보여줌
 - 첫 행의 LAG는 0, 마지막 행의 LEAD도 0 (기본값 설정)
 
+--- 
+# 집계 함수    
+### 집계함수 + OVER() = 윈도우 함수      
+
+**집계 함수(예: SUM, AVG, COUNT 등)**는 보통 GROUP BY와 함께 사용해서 집단별 하나의 결과만 반환함.      
+하지만 OVER() 절을 붙이면 집계 함수도 각 행마다 결과를 반환하는 윈도우 함수처럼 동작함.        
+=> 집계 + 윈도우 기능을 동시에 사용하는 것        
+(DISTINCT 옵션은 대부분 쓸 수 없음)        
+
+<img width="519" alt="스크린샷 2025-03-25 오후 3 24 55" src="https://github.com/user-attachments/assets/43d80c0b-f886-4a11-9bc8-378f0971f714" />
+
+### 1. AVG()
+
+SELECT       
+  student_name,       
+  test_score,         
+  AVG(test_score) OVER(PARTITION BY student_name) AS avg_score        
+FROM student;      
+
+- 학생별로 그룹을 나누고, 각 행에 대해 평균 점수를 출력함
+- AVG() + OVER() → 윈도우 함수처럼 작동
+
+### 2. COUNT()
+
+SELECT          
+  student_name,         
+  course,        
+  COUNT(*) OVER(PARTITION BY student_name) AS course_count          
+FROM student_course;        
+
+- 학생별 수강 과목 수를 각 행에 표시
+- COUNT(*) + OVER() → 집계이지만 그룹을 쪼개지 않고 전체 행에 결과 표시
+
+### 3. SUM()
+
+SELECT          
+  product,         
+  region,        
+  profit,          
+  SUM(profit) OVER(PARTITION BY region) AS region_profit       
+FROM sales;        
+
+- 지역(region)별로 나눠서 그 안에서 누적 profit 합계를 각 행마다 보여줌
+
 
