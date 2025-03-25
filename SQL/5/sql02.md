@@ -226,4 +226,14 @@ FROM sales;
 
 - 지역(region)별로 나눠서 그 안에서 누적 profit 합계를 각 행마다 보여줌
 
+---
 
+![image](https://github.com/user-attachments/assets/e3fd296e-14cf-4783-981b-def60f7ad1ee)
+
+<img width="361" alt="스크린샷 2025-03-25 오후 4 11 22" src="https://github.com/user-attachments/assets/7536cb15-884d-490b-a481-bb332c67f312" />
+<img width="563" alt="스크린샷 2025-03-25 오후 4 11 11" src="https://github.com/user-attachments/assets/29d30393-42a4-4158-bed4-efbd7d84f4d5" />
+<img width="548" alt="image" src="https://github.com/user-attachments/assets/7ba99b5e-9517-4849-9e40-99e1df1cfb93" />
+
+<img width="854" alt="스크린샷 2025-03-25 오후 7 04 45" src="https://github.com/user-attachments/assets/3e36a916-4fc7-470c-9b8b-498f6e028e81" />
+
+=> 개ㅐㅐㅐㅐ어려움 window function 안쓰는게 대략 20배 효율적이고 쉬운것 같다. 개ㅐㅐ어렵다. 내가 바보인것일까...
