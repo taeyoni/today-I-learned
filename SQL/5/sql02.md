@@ -75,5 +75,111 @@ FROM student;
 - class 별로 점수 내림차순 정렬 후, 순위를 1부터 부여함
 - 동점자가 있어도 무조건 다음 순번으로 넘어감
 
-  
+### 2.RANK()
+동점자는 같은 순위를 부여하지만, 다음 순위는 건너뜀 (띄어쓰기 존재)      
+
+SELECT       
+  name,        
+  score,       
+  RANK() OVER(PARTITION BY class ORDER BY score DESC) AS rank       
+FROM student;       
+
+- 1등 2명 → 다음은 2등이 아닌 3위
+- 즉, 순위 번호에 공백(gap)이 생김
+
+### 3. DENSE_RANK()     
+동점자는 같은 순위, 다음 순위는 건너뛰지 않음         
+
+SELECT          
+  name,        
+  score,      
+  DENSE_RANK() OVER(PARTITION BY class ORDER BY score DESC) AS dense_rank       
+FROM student;       
+
+- 1등 2명 → 다음은 바로 2등
+- 순위가 조밀하게 이어짐 (no gap)
+
+### 4.CUME_DIST()       
+누적 상대 백분위. 현재 값 이하인 데이터의 비율          
+0 ~ 1 사이의 값 반환       
+
+SELECT       
+  score,       
+  CUME_DIST() OVER(ORDER BY score) AS cume_percent       
+FROM student;       
+
+- 낮은 점수일수록 값 작고, 높은 점수일수록 1에 가까움
+- 현재 행보다 작거나 같은 데이터 개수 ÷ 전체 개수
+
+### 5. PERCENT_RANK()
+백분위 순위 (0 ~ 1). 현재 순위 기준 상대적 위치
+
+SELECT        
+  score,         
+  PERCENT_RANK() OVER(ORDER BY score) AS percent_rank         
+FROM student;         
+
+- 공식: (RANK - 1) / (전체 행 수 - 1)
+- 최솟값: 0, 최댓값: 1
+- CUME_DIST와 비슷하지만 계산 방식 다름
+
+### 6. NTILE(N)
+데이터를 N개의 구간(bucket)으로 나누고, 각 행이 속한 구간 번호 반환       
+
+SELECT         
+  score,         
+  NTILE(4) OVER(ORDER BY score) AS quartile         
+FROM student;          
+
+- 성적순으로 정렬 후 4개의 그룹으로 나눠서
+- 각 그룹에 1~4 번호 부여
+
+###  7. FIRST_VALUE(expr), LAST_VALUE(expr)
+윈도우 프레임 내에서 첫 번째 값 / 마지막 값 반환      
+
+SELECT        
+  time,        
+  val,         
+  FIRST_VALUE(val) OVER w AS first_val,        
+  LAST_VALUE(val) OVER w AS last_val         
+FROM observation           
+WINDOW w AS (          
+  PARTITION BY sensor ORDER BY time           
+  ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW           
+);           
+
+- 센서별로 시간순 정렬 후
+- 현재까지의 첫 값, 마지막 값 추출
+- w로 저장하고 over 에 불러옴!!
+- WINDOW는 윈도우 함수에서 반복되는 PARTITION/ORDER 기준을 저장해두는 키워드
+
+### 8. NTH_VALUE(expr, N)
+윈도우 프레임 내에서 N번째 값을 반환 (없으면 NULL)     
+
+SELECT        
+  time,       
+  NTH_VALUE(val, 3) OVER w AS third_val        
+FROM observation         
+WINDOW w AS (        
+  PARTITION BY sensor ORDER BY time       
+  ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW       
+);         
+- 프레임 내 3번째 값 추출
+- 현재 행이 프레임의 3번째 이전이면 NULL 나옴
+
+### 9. LAG(expr, N, default) / LEAD(expr, N, default)
+
+LAG: N행 전의 값 / LEAD: N행 후의 값        
+기본값 없으면 NULL, N 생략 시 1       
+
+SELECT          
+  time,         
+  val,          
+  LAG(val, 1, 0) OVER(ORDER BY time) AS prev_val,         
+  LEAD(val, 1, 0) OVER(ORDER BY time) AS next_val       
+FROM series;         
+
+- 시간 기준으로 바로 앞/뒤 값 보여줌
+- 첫 행의 LAG는 0, 마지막 행의 LEAD도 0 (기본값 설정)
+
 
