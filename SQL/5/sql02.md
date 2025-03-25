@@ -62,5 +62,18 @@ OVER (
 : ROW_NUMBER(), RANK(), DENSE_RANK(), LAG(), LEAD(), NTILE(), ...        
 
 ---
+# window fucntion    
 
+### 1.ROW_NUMBER()     
+파티션 안에서 각 행의 고유한 순번을 매김. 동순위 없음.     
+
+SELECT      
+  name,       
+  score,         
+  ROW_NUMBER() OVER(PARTITION BY class ORDER BY score DESC) AS row_num        
+FROM student;        
+- class 별로 점수 내림차순 정렬 후, 순위를 1부터 부여함
+- 동점자가 있어도 무조건 다음 순번으로 넘어감
+
+  
 
