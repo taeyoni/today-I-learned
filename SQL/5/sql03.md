@@ -9,17 +9,17 @@ SELECT CASE 1
 END;        
 
 ### when
-CASE WHEN: 조건 기반 처리
-SELECT CASE          
-    WHEN 1 > 0 THEN 'true'  -- 조건이 참이므로 'true' 반환         
-    ELSE 'false'        
-END;        
+CASE WHEN: 조건 기반 처리       
+SELECT CASE              
+    WHEN 1 > 0 THEN 'true'  -- 조건이 참이므로 'true' 반환                 
+    ELSE 'false'              
+END;              
 
 ### binary
 BINARY 비교 (대소문자 구분)         
-SELECT CASE BINARY 'B'       
-    WHEN 'a' THEN 1         
-    WHEN 'b' THEN 2   -- BINARY 때문에 소문자와 매칭 안됨 → NULL 반환           
+SELECT CASE BINARY 'B'           
+    WHEN 'a' THEN 1             
+    WHEN 'b' THEN 2   -- BINARY 때문에 소문자와 매칭 안됨 → NULL 반환                
 END;         
 
 # if
