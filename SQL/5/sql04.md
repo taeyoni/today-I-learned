@@ -66,7 +66,5 @@ WITH RECURSIVE employee_paths (id, name, path) AS (
 SELECT * FROM employee_paths ORDER BY path;          
 
 
-
-
-
-
+<img width="1065" alt="스크린샷 2025-05-06 오전 12 34 54" src="https://github.com/user-attachments/assets/be8640ef-1d73-40b8-aa0c-d346a264002c" />
+생소하다링...;;; ㅜㅠㅠ
