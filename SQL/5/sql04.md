@@ -27,16 +27,46 @@ GROUP BY student_name;
 easy - 🤭
 
 
-
-
+# with_recursive    
 WITH RECURSIVE는 자기 자신을 참조할 수 있는 임시 테이블(CTE)을 정의하여,
-재귀적으로 데이터를 생성하거나 계층 구조를 탐색할 수 있게 해주는 문법이다.
+재귀적으로 데이터를 생성하거나 계층 구조를 탐색할 수 있게 해주는 문법
 
 주로 사용되는 용도:
-	•	숫자/날짜 시퀀스 생성
-	•	계층적 조직도 구성
-	•	그래프 탐색 (ex. 트리 구조, 네트워크 연결)
+- 숫자/날짜 시퀀스 생성
+- 계층적 조직도 구성
+- 그래프 탐색 (ex. 트리 구조, 네트워크 연결)
 
-구조
+종료 조건을 반드시 명시해야 무한루프 방지       
+컬럼 개수 및 순서는 anchor와 recursive 부분이 일치해야 함       
+
+
+### 예제1
+숫자 1부터 5까지 재귀적으로 생성           
+WITH RECURSIVE cte (n) AS (              
+    SELECT 1                #anchor: 시작값 1               
+    UNION ALL               
+    SELECT n + 1 FROM cte   #recursion: n에 1씩 더하기             
+    WHERE n < 5             #종료 조건              
+)              
+SELECT * FROM cte;          
+
+### 예제 
+CEO → 직원까지의 경로를 path 컬럼으로 연결       
+WITH RECURSIVE employee_paths (id, name, path) AS (         
+    SELECT id, name, CAST(id AS CHAR(200))         
+    FROM employees           
+    WHERE manager_id IS NULL     #CEO 찾기        
+               
+    UNION ALL            
+                    
+    SELECT e.id, e.name, CONCAT(ep.path, ',', e.id)          
+    FROM employee_paths ep              
+    JOIN employees e ON ep.id = e.manager_id              
+)           
+SELECT * FROM employee_paths ORDER BY path;          
+
+
+
+
 
 
